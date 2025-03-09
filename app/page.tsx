@@ -1,4 +1,4 @@
-import AnimationStart from "./AnimationStart";
+import AnimationStart from "./Components/AnimationStart";
 
 export default function Home() {
   return <AnimationStart />;
