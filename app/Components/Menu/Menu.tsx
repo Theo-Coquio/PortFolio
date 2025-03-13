@@ -4,6 +4,7 @@ const Menu = () => {
   return (
     <div>
       <button>menu</button>
+      <button>menu</button>
     </div>
   );
 };
