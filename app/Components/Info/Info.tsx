@@ -10,11 +10,12 @@ const Info = () => {
       <div className="flex-1">
         <h1 className="text-3xl">How did I discovered Coding ?</h1>
         <p>
-          At school, I discovered the basics or programing, with langages like
-          HTML and CSS, and I loved it straight away. But the courses
-          didn&apos;t last, until one day, by chance, a YouTube video rekindled
-          my passion. Since then, web development has become an obvious choice
-          for me: it&apos;s what I want to do!
+          It all started at school, where I learned the basics of programming,
+          starting with HTML and CSS! It all started there, and I loved it
+          instantly. Unfortunately, that course didn&apos;t last and programming
+          fell into darkness in favour of the rest of my school year. But one
+          day, by chance, YouTube gave me the most wonderful recommendation
+          Since then, web development has become an obvious choice for me
         </p>
       </div>
       <div className="flex-1">

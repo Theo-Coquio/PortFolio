@@ -20,7 +20,6 @@ const Hero = () => {
         React developer
       </p>
       <div className="text-5xl">SCROLL</div>
-      <div className="absolute top-0 left-0 h-dvh w-full noise"></div>
     </div>
   );
 };
