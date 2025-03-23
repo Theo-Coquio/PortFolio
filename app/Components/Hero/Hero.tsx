@@ -20,6 +20,8 @@ const Hero = () => {
         React developer
       </p>
       <div className="text-5xl">SCROLL</div>
+      <div className="text-5xl">SCROLL</div>
+      <div className="text-5xl">SCROLL</div>
     </div>
   );
 };
