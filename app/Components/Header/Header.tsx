@@ -2,9 +2,9 @@ import React from "react";
 
 const Header = () => {
   return (
-    <div className="w-full h-32 px-[500px] pt-16 flex flex-row items-center justify-between ">
+    <div className="w-full h-32 px-[500px] pt-16 flex flex-row items-center justify-between fixed z-10 bg-(--background)">
       <button className="flex flex-col gap-2">
-        <div className="h-[2px] w-10 rounded-xl bg-white"></div>
+        <div className="h-[2px] w-9 rounded-xl bg-white"></div>
         <div className="h-[2px] w-7 rounded-xl bg-white"></div>
         <div className="h-[2px] w-5 rounded-xl bg-white"></div>
       </button>

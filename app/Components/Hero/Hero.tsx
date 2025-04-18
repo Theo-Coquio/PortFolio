@@ -7,20 +7,39 @@ import gsap from "gsap";
 
 const Hero = () => {
   useEffect(() => {
-    gsap
-      .timeline()
-      .from("#name span", { duration: 0.5, y: -100, opacity: 0, stagger: 0.1 })
-      .from("#lastname span", {
-        duration: 0.5,
-        y: -100,
-        opacity: 0,
-        stagger: 0.1,
-      });
+    // gsap
+    //   .timeline()
+    //   .from("#name span", { duration: 0.5, y: -500, opacity: 0, stagger: 0.1 })
+    //   .from(
+    //     "#lastname span",
+    //     {
+    //       duration: 0.5,
+    //       y: 600,
+    //       opacity: 0,
+    //       stagger: -0.1,
+    //     },
+    //     "<"
+    //   );
+    gsap.from("#name span", {
+      duration: 0.7,
+      y: -100,
+      opacity: 0,
+      stagger: 0.08,
+      ease: "power2.out",
+      delay: 0.1,
+    });
+    gsap.from("#lastname span", {
+      duration: 0.7,
+      y: 100,
+      opacity: 0,
+      stagger: 0.08,
+      ease: "power2.out",
+    });
   }, []);
 
   return (
     <div
-      className={` px-[500px] py-20 ${bigShouldersDisplayBold.className}  flex flex-col items-center justify-center text-[#E0F11F] `}
+      className={`py-40 ${bigShouldersDisplayBold.className}  flex flex-col items-center justify-center text-[#E0F11F] `}
     >
       <div
         className="flex flex-row h-80 w-full justify-center items-start text-[260px]"
