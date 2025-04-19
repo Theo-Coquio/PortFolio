@@ -61,7 +61,7 @@ const Hero = () => {
         <span>I</span>
         <span>O</span>
       </div>
-      <p className="text-3xl">I&apos;m Theo - 20 years old react developer</p>
+      <p className="text-3xl">I&apos;m Theo - 20 yo Self-Taught Developer</p>
     </div>
   );
 };
