@@ -1,3 +1,4 @@
+import { herrVonMuellerhoff } from "@/fonts";
 import React from "react";
 
 const Header = () => {
@@ -8,7 +9,7 @@ const Header = () => {
         <div className="h-[2px] w-7 rounded-xl bg-white"></div>
         <div className="h-[2px] w-5 rounded-xl bg-white"></div>
       </button>
-      <h1 className="text-4xl">Portfolio</h1>
+      <h1 className={`text-6xl ${herrVonMuellerhoff.className}`}>Portfolio</h1>
       <button className="text-lg bg-white text-black py-2 px-7 rounded-full">
         Contact
       </button>

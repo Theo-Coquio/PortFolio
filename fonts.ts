@@ -3,6 +3,7 @@ import { Yellowtail } from "next/font/google";
 import { Roboto } from "next/font/google";
 import { Oxygen } from "next/font/google";
 import { Big_Shoulders_Display } from "next/font/google";
+import { Herr_Von_Muellerhoff } from "next/font/google";
 
 export const aboreto = Aboreto({
   weight: "400",
@@ -30,5 +31,10 @@ export const bigShouldersDisplay = Big_Shoulders_Display({
 });
 export const bigShouldersDisplayBold = Big_Shoulders_Display({
   weight: "700",
+  subsets: ["latin"],
+});
+
+export const herrVonMuellerhoff = Herr_Von_Muellerhoff({
+  weight: "400",
   subsets: ["latin"],
 });
