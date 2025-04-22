@@ -7,19 +7,6 @@ import gsap from "gsap";
 
 const Hero = () => {
   useEffect(() => {
-    // gsap
-    //   .timeline()
-    //   .from("#name span", { duration: 0.5, y: -500, opacity: 0, stagger: 0.1 })
-    //   .from(
-    //     "#lastname span",
-    //     {
-    //       duration: 0.5,
-    //       y: 600,
-    //       opacity: 0,
-    //       stagger: -0.1,
-    //     },
-    //     "<"
-    //   );
     gsap.from("#name span", {
       duration: 0.7,
       y: -100,
