@@ -3,6 +3,10 @@
 import React, { useEffect } from "react";
 import gsap from "gsap";
 import { bigShouldersDisplayBold } from "@/fonts";
+import heroStore from "../Store/useHeroStore";
+import { TextPlugin } from "gsap/TextPlugin";
+
+gsap.registerPlugin(TextPlugin);
 
 interface MenuProps {
   isOpen: boolean;
@@ -40,15 +44,9 @@ const Menu: React.FC<MenuProps> = ({ isOpen, headerRef }) => {
       }
     }
 
-    tl.set(
-      "#menu",
-      {
-        display: "none",
-        duration: 0.1,
-        ease: "circ.in",
-      },
-      "<"
-    );
+    tl.set("#menu", {
+      visibility: "hidden",
+    });
 
     if (isOpen) {
       const elements = headerRef.current
@@ -56,6 +54,9 @@ const Menu: React.FC<MenuProps> = ({ isOpen, headerRef }) => {
         : [];
       const span = headerRef.current
         ? headerRef.current.querySelector("span")
+        : [];
+      const title = headerRef.current
+        ? headerRef.current.querySelector("h1")
         : [];
 
       tl.to(elements, {
@@ -75,14 +76,6 @@ const Menu: React.FC<MenuProps> = ({ isOpen, headerRef }) => {
         },
         "<"
       );
-
-      // Header Removal
-
-      tl.to(headerRef.current, {
-        display: "none",
-        duration: 0.1,
-        ease: "circ.out",
-      });
 
       // First Part
 
@@ -140,44 +133,93 @@ const Menu: React.FC<MenuProps> = ({ isOpen, headerRef }) => {
           transformOrigin: "bottom",
         }
       );
-      tl.fromTo(
-        "#lower-div div",
-        {
-          scaleY: 1,
-        },
-        {
-          duration: 0.6,
-          opacity: 0,
-          scaleY: 0,
+      if (isOpen) {
+        if (heroStore.heroRef?.current) {
+          const heroElement = heroStore.heroRef.current;
+
+          tl.to(
+            heroElement,
+            {
+              opacity: 0,
+              duration: 0,
+              ease: "power2.out",
+            },
+            "<"
+          );
+        }
+        tl.fromTo(
+          "#lower-div div",
+          {
+            scaleY: 1,
+          },
+          {
+            duration: 0.6,
+            opacity: 0,
+            scaleY: 0,
+            stagger: 0.1,
+            ease: "circ.out",
+            transformOrigin: "bottom",
+          },
+          "<"
+        );
+
+        // Header Appear
+
+        tl.to(
+          title,
+
+          {
+            ease: "back.in",
+            text: {
+              value: "Menu",
+            },
+          }
+        );
+        tl.to(elements, {
+          y: 0,
+          opacity: 1,
           stagger: 0.1,
+          duration: 0.5,
           ease: "circ.out",
-          transformOrigin: "bottom",
-        },
-        "<"
-      );
+        });
 
-      const letters = document.querySelectorAll(".letter");
-      tl.to("#menu", {
-        display: "block",
-        duration: 0.1,
-        ease: "circ.out",
-      });
+        tl.to(span, {
+          width: "0%",
+          opacity: 0,
+          duration: 0.4,
+          ease: "circ.in",
+          delay: 1,
+        });
+        // Menu Animation
 
-      tl.fromTo(
-        letters,
-        {
-          y: 50, // Position initiale
-          opacity: 0, // Invisible au départ
-        },
-        {
-          y: 0, // Retour à la position initiale
-          opacity: 1, // Complètement visible
-          stagger: 0.05, // Décalage entre chaque lettre
-          duration: 0.5, // Durée de l'animation
-          ease: "power2.out", // Courbe d'animation
-        },
-        "+=0.1"
-      );
+        tl.to(
+          "#menu",
+          {
+            visibility: "visible",
+            duration: 0,
+            ease: "circ.out",
+            delay: 0.75,
+          },
+          "<"
+        );
+        const letters = document.querySelectorAll(".letter");
+
+        tl.fromTo(
+          letters,
+          {
+            y: 50,
+            opacity: 0,
+          },
+          {
+            y: 0,
+            opacity: 1,
+            stagger: 0.05,
+            duration: 0.35,
+            ease: "power2.out",
+          },
+          "<"
+        );
+      }
     }
   }, [isOpen, headerRef]);
 
@@ -213,11 +255,11 @@ const Menu: React.FC<MenuProps> = ({ isOpen, headerRef }) => {
 
         <div
           id="menu"
-          className={`absolute top-0 left-0 w-full h-screen flex flex-col items-center justify-center px-[500px] bg-(--background) z-50 
-           ${bigShouldersDisplayBold.className}
+          className={`absolute botoom-0 left-0 w-full h-3/4 flex flex-col items-center justify-center px-[500px] bg-(--background) z-40 mt-8
+           ${bigShouldersDisplayBold.className} 
         }`}
         >
-          <ul className="flex flex-col gap-14 items-center justify-center h-full   text-7xl  ">
+          <ul className="flex flex-col gap-14 items-center justify-center flex-1 text-7xl  ">
             {menuItems.map((item, index) => (
               <li
                 key={index}

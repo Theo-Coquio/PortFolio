@@ -1,15 +1,24 @@
 "use client";
 import { herrVonMuellerhoff } from "@/fonts";
-import React, { useRef } from "react";
+import React, { useEffect, useRef } from "react";
 import Menu from "../Menu/Menu";
 
 const Header: React.FC = () => {
   const headerRef = useRef<HTMLDivElement>(null);
   const buttonRef = useRef<HTMLButtonElement>(null);
+  const titleRef = useRef<HTMLHeadingElement>(null);
   const [isOpen, setIsOpen] = React.useState(false);
   const handleMenuClick = () => {
     setIsOpen(!isOpen);
   };
+
+  useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+  }, [isOpen]);
 
   return (
     <>
@@ -28,7 +37,10 @@ const Header: React.FC = () => {
           <div className="h-[2px] w-7 rounded-xl bg-white"></div>
           <div className="h-[2px] w-5 rounded-xl bg-white"></div>
         </button>
-        <h1 className={`text-6xl relative ${herrVonMuellerhoff.className}`}>
+        <h1
+          ref={titleRef}
+          className={`text-6xl relative ${herrVonMuellerhoff.className}`}
+        >
           Portfolio
           <span className="bg-white rounded-full h-[2px] absolute top-1/2 left-1 "></span>
         </h1>

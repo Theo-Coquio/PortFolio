@@ -1,11 +1,21 @@
 "use client";
 
-import React, { useEffect } from "react";
+import React, { useEffect, useRef } from "react";
 import "./hero.css";
 import { bigShouldersDisplayBold } from "@/fonts";
 import gsap from "gsap";
+import heroStore from "../Store/useHeroStore";
+import { observer } from "mobx-react-lite";
 
-const Hero: React.FC = () => {
+const Hero: React.FC = observer(() => {
+  const heroRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (heroRef.current) {
+      heroStore.setHeroRef(heroRef);
+    }
+  }, []);
+
   useEffect(() => {
     gsap.from("#name span", {
       duration: 0.7,
@@ -26,6 +36,7 @@ const Hero: React.FC = () => {
 
   return (
     <div
+      ref={heroRef}
       className={`py-40 ${bigShouldersDisplayBold.className}   flex flex-col items-center justify-center text-[#E0F11F] z-0 
        
        `}
@@ -53,6 +64,6 @@ const Hero: React.FC = () => {
       <p className="text-3xl">I&apos;m Theo - 20 yo Self-Taught Developer</p>
     </div>
   );
-};
+});
 
 export default Hero;
