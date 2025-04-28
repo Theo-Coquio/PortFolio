@@ -5,7 +5,7 @@ import "./hero.css";
 import { bigShouldersDisplayBold } from "@/fonts";
 import gsap from "gsap";
 
-const Hero = () => {
+const Hero: React.FC = () => {
   useEffect(() => {
     gsap.from("#name span", {
       duration: 0.7,
@@ -26,7 +26,9 @@ const Hero = () => {
 
   return (
     <div
-      className={`py-40 ${bigShouldersDisplayBold.className}  flex flex-col items-center justify-center text-[#E0F11F] `}
+      className={`py-40 ${bigShouldersDisplayBold.className}   flex flex-col items-center justify-center text-[#E0F11F] z-0 
+       
+       `}
     >
       <div
         className="flex flex-row h-80 w-full justify-center items-start text-[260px]"

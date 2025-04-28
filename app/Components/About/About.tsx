@@ -4,7 +4,7 @@ import SkillsComponents from "./SkillsComponents";
 
 const About = () => {
   return (
-    <div className="w-full h-screen flex flex-col">
+    <div className="w-full h-screen flex flex-col  ">
       <div className="flex flex-row items-center gap-10">
         <h1
           className={`text-[#E0F11F] text-3xl ${bigShouldersDisplayBold.className}`}
