@@ -4,7 +4,7 @@ import SkillsComponents from "./SkillsComponents";
 
 const About = () => {
   return (
-    <div className="w-full h-screen flex flex-col  ">
+    <div className="w-full h-full flex flex-col  pb-40">
       <div className="flex flex-row items-center gap-10">
         <h1
           className={`text-[#E0F11F] text-3xl ${bigShouldersDisplayBold.className}`}
@@ -13,8 +13,8 @@ const About = () => {
         </h1>
         <div className="h-[3px] w-full bg-[#404040] rounded-full"></div>
       </div>
-      <div className="flex flex-row gap-10 mt-10">
-        <div className="flex-1 text-[#404040] flex flex-col gap-4">
+      <div className="flex flex-row gap-10 mt-10 ">
+        <div className="flex-1 text-[#404040] flex flex-col gap-10">
           <h1 className="text-xl">How did I discovered Coding ?</h1>
           <p>
             {" "}
@@ -26,9 +26,23 @@ const About = () => {
             recommendation Since then, web development has become an obvious
             choice for me
           </p>
+          <div className="flex flex-row items-center gap-10">
+            <h1
+              className={`text-[#E0F11F] text-2xl ${bigShouldersDisplayBold.className}`}
+            >
+              In brief
+            </h1>
+            <div className="h-[3px] w-76 bg-[#404040] rounded-full"></div>
+          </div>
+          <ul className="list-disc list-inside">
+            <li>Discovered coding at school</li>
+            <li>Stepped away from it because of classes</li>
+            <li>Rediscovered it through youtube</li>
+            <li>I love Coding hihi</li>
+          </ul>
         </div>
         <div className="flex-1 flex flex-col gap-8">
-          <h1>What am i specialized to</h1>
+          <h1 className="text-[#404040] text-xl">What am i specialized to</h1>
           <SkillsComponents title="NextJs" percentage={8} />
           <SkillsComponents title="TypeScript" percentage={1} />
           <SkillsComponents title="Tailwind" percentage={120} />

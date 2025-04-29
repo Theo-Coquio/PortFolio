@@ -39,11 +39,12 @@ const Header: React.FC = () => {
         </button>
         <h1
           ref={titleRef}
-          className={`text-6xl relative ${herrVonMuellerhoff.className}`}
+          className={`text-6xl relative ml-16 ${herrVonMuellerhoff.className}`}
         >
           Portfolio
           <span className="bg-white rounded-full h-[2px] absolute top-1/2 left-1 "></span>
         </h1>
+
         <button className="text-lg bg-white text-black py-2 px-7 rounded-full">
           Contact
         </button>

@@ -2,7 +2,7 @@
 
 import React, { useEffect } from "react";
 import gsap from "gsap";
-import { bigShouldersDisplayBold } from "@/fonts";
+import { bigShouldersDisplayBold, herrVonMuellerhoff } from "@/fonts";
 import heroStore from "../Store/useHeroStore";
 import { TextPlugin } from "gsap/TextPlugin";
 
@@ -50,13 +50,10 @@ const Menu: React.FC<MenuProps> = ({ isOpen, headerRef }) => {
 
     if (isOpen) {
       const elements = headerRef.current
-        ? headerRef.current.querySelectorAll("button, h1")
+        ? headerRef.current.querySelectorAll("span, button,  h1 ")
         : [];
       const span = headerRef.current
         ? headerRef.current.querySelector("span")
-        : [];
-      const title = headerRef.current
-        ? headerRef.current.querySelector("h1")
         : [];
 
       tl.to(elements, {
@@ -166,30 +163,18 @@ const Menu: React.FC<MenuProps> = ({ isOpen, headerRef }) => {
         // Header Appear
 
         tl.to(
-          title,
-
+          elements,
           {
-            ease: "back.in",
-            text: {
-              value: "Menu",
-            },
-          }
+            y: 0,
+            opacity: 1,
+            stagger: 0.1,
+            duration: 0.5,
+            delay: 0.5,
+            ease: "circ.out",
+          },
+          "<"
         );
-        tl.to(elements, {
-          y: 0,
-          opacity: 1,
-          stagger: 0.1,
-          duration: 0.5,
-          ease: "circ.out",
-        });
 
-        tl.to(span, {
-          width: "0%",
-          opacity: 0,
-          duration: 0.4,
-          ease: "circ.in",
-          delay: 1,
-        });
         // Menu Animation
 
         tl.to(
@@ -275,6 +260,23 @@ const Menu: React.FC<MenuProps> = ({ isOpen, headerRef }) => {
           </ul>
         </div>
       </div>
+      {/* <div
+        id="headerMenu"
+        className={`w-full h-32 pt-16 flex flex-row items-center fixed z-50 bg-(--background) px-[500px]
+               
+              }`}
+      >
+        <button className="flex flex-row gap-1.5 hover:cursor-pointer w-9 h-9 items-center justify-center border-2 border-white rounded-full  ">
+          <div className="w-[2px] h-3 rotate-45 rounded-xl bg-white "></div>
+          <div className="w-[2px] h-3 -rotate-45 bg-white"></div>
+        </button>
+        <h1
+          className={`text-6xl relative ml-80 ${herrVonMuellerhoff.className}`}
+        >
+          Menu
+          <span className="bg-white rounded-full h-[2px] absolute top-1/2 left-1 "></span>
+        </h1>
+      </div> */}
     </>
   );
 };
