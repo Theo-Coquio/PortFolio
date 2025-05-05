@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-
+import SmoothScrolling from "./Components/SmoothScrolling";
 import React from "react";
 import Header from "./Components/Header/Header";
 
@@ -31,7 +31,8 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <Header />
-        {children}
+
+        <SmoothScrolling>{children}</SmoothScrolling>
       </body>
     </html>
   );

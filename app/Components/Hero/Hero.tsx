@@ -37,12 +37,12 @@ const Hero: React.FC = observer(() => {
   return (
     <div
       ref={heroRef}
-      className={`py-40 ${bigShouldersDisplayBold.className}   flex flex-col items-center justify-center text-[#E0F11F] z-0 
+      className={`py-60 md:py-40 ${bigShouldersDisplayBold.className}   flex flex-col items-center justify-center text-[#E0F11F] z-0 
        
        `}
     >
       <div
-        className="flex flex-row h-80 w-full justify-center items-start text-[260px]"
+        className="flex flex-row md:h-80 w-full justify-center items-start text-9xl md:text-[260px]"
         id="name"
       >
         <span>T</span>
@@ -51,7 +51,7 @@ const Hero: React.FC = observer(() => {
         <span>O</span>
       </div>
       <div
-        className="flex flex-row h-80 w-full justify-center items-end text-[260px]"
+        className="flex flex-row md:h-80 w-full justify-center items-end text-9xl md:text-[260px] pb-10 md:pb-20"
         id="lastname"
       >
         <span>C</span>
@@ -61,7 +61,11 @@ const Hero: React.FC = observer(() => {
         <span>I</span>
         <span>O</span>
       </div>
-      <p className="text-3xl">I&apos;m Theo - 20 yo Self-Taught Developer</p>
+      <div className="w-full h-full flex justify-center items-center ">
+        <p className="text-2xl md:text-3xl">
+          I&apos;m Theo - 20 yo Self-Taught Developer
+        </p>
+      </div>
     </div>
   );
 });
